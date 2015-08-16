@@ -84,6 +84,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+if [ $(uname) == "Darwin" ]; then
+    export CLICOLOR=1
+    export LSCOLORS=ExFxBxDxCxegedabagacad
+    alias ls='ls -GFh'
+fi
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -123,5 +129,6 @@ shopt -s cdspell
 
 export EDITOR=vim
 
+# chromeos developing env
 export PATH=`pwd`/depot_tools:"$PATH"
 umask 022
