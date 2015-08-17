@@ -121,7 +121,18 @@ fi
 # auto correct cd typo
 shopt -s cdspell
 
+# setup default editor
 export EDITOR=vim
 
+# enable Git base complete
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# repo bash completion
+[ -f "$HOME/etc/repo_bash_completion" ] && . "$HOME/etc/repo_bash_completion"
+
+# for chromeos developing
 export PATH=`pwd`/depot_tools:"$PATH"
 umask 022
+
