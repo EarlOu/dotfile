@@ -141,7 +141,5 @@ fi
 # repo bash completion
 [ -f "$HOME/etc/repo_bash_completion" ] && . "$HOME/etc/repo_bash_completion"
 
-# for chromeos developing
-export PATH=`pwd`/depot_tools:"$PATH"
-umask 022
-
+# Local settings
+[ -f "$HOME/.local_bashrc" ] && . "$HOME/.local_bashrc"
