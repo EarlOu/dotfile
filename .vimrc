@@ -7,6 +7,8 @@ call plug#begin('~/vim/plugged')
     Plug 'Valloric/YouCompleteMe'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'airblade/vim-gitgutter'
+    Plug 'scrooloose/syntastic'
+    Plug 'bling/vim-airline'
 
     " Vim theme
     Plug 'vim-scripts/BusyBee'
@@ -61,6 +63,9 @@ hi IndentGuidesEven ctermbg=darkgrey
 
 " Set vim-gitgutter
 let g:gitgutter_realtime = 1
+
+" Set space for airline
+set laststatus=2
 
 " Map W
 command W w
