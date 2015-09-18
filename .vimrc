@@ -1,6 +1,8 @@
 " no vi compatible mode
 set nocompatible
 
+set encoding=utf-8
+
 " vim-plug setup
 call plug#begin('~/vim/plugged')
     Plug 'kien/ctrlp.vim'
@@ -9,6 +11,7 @@ call plug#begin('~/vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'scrooloose/syntastic'
     Plug 'bling/vim-airline'
+    Plug 'edkolev/tmuxline.vim'
 
     " Vim theme
     Plug 'vim-scripts/BusyBee'
@@ -66,6 +69,9 @@ let g:gitgutter_realtime = 1
 
 " Set space for airline
 set laststatus=2
+
+" Disable copy of tmuxline config
+let g:airline#extensions#tmuxline#enabled = 0
 
 " Map W
 command W w
