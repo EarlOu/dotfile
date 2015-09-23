@@ -9,6 +9,7 @@ call plug#begin('~/vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'scrooloose/syntastic'
     Plug 'bling/vim-airline'
+    Plug 'tpope/vim-fugitive'
 
     " Vim theme
     Plug 'vim-scripts/BusyBee'
@@ -66,6 +67,7 @@ let g:gitgutter_realtime = 1
 
 " Set space for airline
 set laststatus=2
+let g:airline_powerline_fonts = 1
 
 " Map W
 command W w
