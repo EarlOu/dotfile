@@ -1,20 +1,23 @@
 " no vi compatible mode
 set nocompatible
 
+set encoding=utf-8
+
 " vim-plug setup
 call plug#begin('~/vim/plugged')
-    Plug 'kien/ctrlp.vim'
-    Plug 'Valloric/YouCompleteMe'
-    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'airblade/vim-gitgutter'
-    Plug 'scrooloose/syntastic'
     Plug 'bling/vim-airline'
+    Plug 'edkolev/tmuxline.vim'
+    Plug 'kien/ctrlp.vim'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'scrooloose/syntastic'
     Plug 'tpope/vim-fugitive'
+    Plug 'Valloric/YouCompleteMe'
 
     " Vim theme
-    Plug 'vim-scripts/BusyBee'
-    Plug 'sjl/badwolf'
     Plug 'altercation/vim-colors-solarized'
+    Plug 'sjl/badwolf'
+    Plug 'vim-scripts/BusyBee'
 call plug#end()
 
 " Setup indent formating
@@ -68,6 +71,9 @@ let g:gitgutter_realtime = 1
 " Set space for airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+" Disable copy of tmuxline config
+let g:airline#extensions#tmuxline#enabled = 0
 
 " Map W
 command W w
