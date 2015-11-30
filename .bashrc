@@ -60,10 +60,20 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+shorten_w() {
+  local p=${1/#${HOME}/\~}
+  if [ "${p}" != "~" ]; then
+    local p_dir=$(dirname "${p}")
+    local short_dir=${p_dir/#${HOME}/\~}
+    p=$(echo "${short_dir}" | sed -e "s;\(/.\)[^/]*;\1;g")/$(basename "${p}")
+  fi
+  echo "${p}"
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]$(shorten_w \w)\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='\u@\h:$(shorten_w \w)\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -143,3 +153,5 @@ fi
 
 # Local settings
 [ -f "$HOME/.local_bashrc" ] && . "$HOME/.local_bashrc"
+
+alias ssh='TERM=xterm ssh'
