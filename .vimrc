@@ -68,12 +68,7 @@ hi IndentGuidesEven ctermbg=darkgrey
 " Set vim-gitgutter
 let g:gitgutter_realtime = 1
 
-" Set space for airline
-set laststatus=2
-let g:airline_powerline_fonts = 1
-
-" Disable copy of tmuxline config
-let g:airline#extensions#tmuxline#enabled = 0
-
 " Map W
 command W w
+
+set clipboard=unnamedplus
