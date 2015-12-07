@@ -113,6 +113,8 @@ fi
 # repo bash completion
 [ -f "$HOME/etc/repo_bash_completion" ] && . "$HOME/etc/repo_bash_completion"
 
+export PATH=$HOME/bin:$PATH
+
 # setup default editor
 export EDITOR=vim
 
