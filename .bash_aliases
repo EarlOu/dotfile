@@ -2,3 +2,6 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls'
+
+# SimpleHTTPServer
+alias ss='python -m SimpleHTTPServer'
