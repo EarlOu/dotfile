@@ -6,8 +6,6 @@ set encoding=utf-8
 " vim-plug setup
 call plug#begin('~/vim/plugged')
     Plug 'airblade/vim-gitgutter'
-    Plug 'bling/vim-airline'
-    Plug 'edkolev/tmuxline.vim'
     Plug 'kien/ctrlp.vim'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/syntastic'
@@ -71,4 +69,4 @@ let g:gitgutter_realtime = 1
 " Map W
 command W w
 
-set clipboard=unnamedplus
+set clipboard=unnamed
