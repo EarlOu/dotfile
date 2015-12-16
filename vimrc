@@ -6,18 +6,14 @@ set encoding=utf-8
 " vim-plug setup
 call plug#begin('~/vim/plugged')
     Plug 'airblade/vim-gitgutter'
-    Plug 'bling/vim-airline'
-    Plug 'edkolev/tmuxline.vim'
     Plug 'kien/ctrlp.vim'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/syntastic'
-    Plug 'tpope/vim-fugitive'
     Plug 'Valloric/YouCompleteMe'
-
+ 
     " Vim theme
     Plug 'altercation/vim-colors-solarized'
     Plug 'sjl/badwolf'
-    Plug 'vim-scripts/BusyBee'
 call plug#end()
 
 " Setup indent formating
