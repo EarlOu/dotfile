@@ -9,13 +9,10 @@ call plug#begin('~/vim/plugged')
     Plug 'kien/ctrlp.vim'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/syntastic'
-    Plug 'tpope/vim-fugitive'
     Plug 'Valloric/YouCompleteMe'
 
     " Vim theme
-    Plug 'altercation/vim-colors-solarized'
     Plug 'sjl/badwolf'
-    Plug 'vim-scripts/BusyBee'
 call plug#end()
 
 " Setup indent formating
@@ -26,6 +23,9 @@ set expandtab
 set smartindent
 set colorcolumn=81
 filetype plugin indent on
+
+au FileType python set sw=2 sts=2 ts=2 colorcolumn=100
+au FileType bash,sh set sw=2 sts=2 ts=2
 
 " Setup theme
 syntax on

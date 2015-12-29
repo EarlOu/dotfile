@@ -22,7 +22,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-if [ "$TERM" == "xterm" ]; then
+if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
   export TERM=xterm-256color
 fi
 
@@ -49,10 +49,12 @@ fi
 
 shorten_w() {
   local p=${1/#${HOME}/\~}
-  if [ "${p}" != "~" ]; then
+  if [ "${p}" != "~" ] && [ "${p}" != "/" ]; then
     local p_dir=$(dirname "${p}")
-    local short_dir=${p_dir/#${HOME}/\~}
-    p=$(echo "${short_dir}" | sed -e "s;\(/.\)[^/]*;\1;g")/$(basename "${p}")
+    if [ "${p_dir}" != "/" ]; then
+      local short_dir=${p_dir/#${HOME}/\~}
+      p=$(echo "${short_dir}" | sed -e "s;\(/.\)[^/]*;\1;g")/$(basename "${p}")
+    fi
   fi
   echo "${p}"
 }
@@ -71,7 +73,7 @@ fi
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e];\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
