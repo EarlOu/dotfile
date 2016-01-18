@@ -49,10 +49,12 @@ fi
 
 shorten_w() {
   local p=${1/#${HOME}/\~}
-  if [ "${p}" != "~" ]; then
+  if [ "${p}" != "~" ] && [ "${p}" != "/" ]; then
     local p_dir=$(dirname "${p}")
-    local short_dir=${p_dir/#${HOME}/\~}
-    p=$(echo "${short_dir}" | sed -e "s;\(/.\)[^/]*;\1;g")/$(basename "${p}")
+    if [ "${p_dir}" != "/" ]; then
+      local short_dir=${p_dir/#${HOME}/\~}
+      p=$(echo "${short_dir}" | sed -e "s;\(/.\)[^/]*;\1;g")/$(basename "${p}")
+    fi
   fi
   echo "${p}"
 }
