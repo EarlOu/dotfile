@@ -67,4 +67,4 @@ let g:gitgutter_realtime = 1
 " Map W
 command W w
 
-set clipboard=unnamedplus
+set clipboard=unnamed
