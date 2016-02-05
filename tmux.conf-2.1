@@ -1,0 +1,16 @@
+set -g mouse-utf8 on
+set -g mouse on
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \;\
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M \;\
+daf
+
+# short cut to toggling mouse mode
+bind M \
+  set -g mouse-utf8 on \;\
+  set -g mouse on \;\
+  display 'Mouse: on'
+
+bind m \
+  set -g mouse-utf8 off \;\
+  set -g mouse off \;\
+  display 'Mouse: off'
