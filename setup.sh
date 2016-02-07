@@ -8,8 +8,7 @@ CONFIG_FILE=(
   "gitconfig"
   "gitignore"
   "tmux.conf"
-  "vimrc"
-  "vim")
+  "vimrc")
 
 OSX_CONFIG_FILE=(
   "bash_profile"
@@ -19,6 +18,25 @@ for config_file in "${CONFIG_FILE[@]}";
 do
   ln -sf "${DIR}/${config_file}" "${HOME}/.${config_file}"
 done
+
+# Set up vim file.
+if [ -e "${HOME}/.vim" ]; then
+  read -p "Found ~/.vim, detele it (y)?" ans
+  if [ "${ans}" == "y" ]; then
+    mv "${HOME}/.vim" "${HOME}/vim_old"
+    rm -rf "${HOME}/.vim"
+
+    ln -s "${DIR}/vim" "${HOME}/.vim"
+
+  fi
+fi
+
+# install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Set up gitignore file.
+mv "${HOME}/.gitignore" "${HOME}/.gitignore_global"
 
 if [ "$(uname)" == "Darwin" ]; then
   for config_file in "${OSX_CONFIG_FILE[@]}";
