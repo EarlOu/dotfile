@@ -1,0 +1,17 @@
+[http]
+	cookiefile = ~/.gitcookies
+[color]
+	ui = auto
+[alias]
+	tree = log --graph --pretty=oneline --abbrev-commit --all --decorate
+	last = log -1 HEAD
+	unstage = reset HEAD
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+[core]
+	include = ~/.gitconfig_local
+	excludesfile = ~/.gitignore_global
+[push]
+	default = simple
