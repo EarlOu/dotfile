@@ -93,6 +93,8 @@ fi
 
 # osx ls color support
 if [ $(uname) == "Darwin" ]; then
+    export CLICOLOR=1
+    export LSCOLORS=GxFxCxDxBxegedabagaced
     alias ls='ls -G'
 fi
 
