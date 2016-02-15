@@ -8,6 +8,8 @@ CONFIG_FILE=(
   "gitconfig"
   "gitignore"
   "tmux.conf"
+  "tmux.conf-1.x"
+  "tmux.conf-2.1"
   "vimrc")
 
 OSX_CONFIG_FILE=(
