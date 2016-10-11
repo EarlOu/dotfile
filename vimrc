@@ -10,7 +10,8 @@ call plug#begin('~/vim/plugged')
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/syntastic'
     Plug 'Valloric/YouCompleteMe'
-
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
     " Vim theme
     Plug 'sjl/badwolf'
 call plug#end()
@@ -28,6 +29,7 @@ filetype plugin indent on
 syntax on
 
 au FileType bash,sh set sw=2 sts=2 ts=2
+au FileType java set sw=4 sts=4 ts=4 colorcolumn=100
 
 " Setup theme
 set background=dark
@@ -56,14 +58,23 @@ nnoremap <leader>h :set hlsearch!<CR>
 set wrap
 nnoremap <leader>w :set wrap!<CR>
 
+" Set paste
+nnoremap <leader>p :set paste!<CR>
+
 " Set history
 set history=100
 
 " Set youcompleteme
+let g:ycm_global_ycm_extra_conf = '~/vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_extra_conf_globlist = ['~/chromium/*']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 nnoremap <leader>d :YcmCompleter GetDoc<CR>
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Set vim-indent-guides
 let g:indent_guides_auto_colors = 0
@@ -74,12 +85,14 @@ hi IndentGuidesEven ctermbg=darkgrey
 let g:gitgutter_realtime = 1
 
 " Set syntastic
+let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_mode_map = {
     \ "mode": "passive"}
-nnoremap <leader>c :SyntasticCheck<CR>
-nnoremap <leader>e :Errors<CR>
-nnoremap <leader>n :lnext<CR>
-nnoremap <leader>p :lprevious<CR>
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Map W
 command W w

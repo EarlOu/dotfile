@@ -13,5 +13,13 @@
 [core]
 	include = ~/.gitconfig_local
 	excludesfile = ~/.gitignore_global
+	editor = vim
+	autocrlf = false
+	filemode = false
 [push]
 	default = simple
+[user]
+	email = shunhsingou@google.com
+	name = Earl Ou
+[branch]
+	autosetuprebase = always
