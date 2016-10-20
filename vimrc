@@ -85,9 +85,19 @@ hi IndentGuidesEven ctermbg=darkgrey
 let g:gitgutter_realtime = 1
 
 " Set syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_mode_map = {
     \ "mode": "passive"}
+nnoremap <leader>s :SyntasticCheck<CR>
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -97,5 +107,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Map W
 command W w
 command Wq wq
+command Tabe tabe
 
 set clipboard=unnamed
+
+call localrc#load()
