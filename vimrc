@@ -12,6 +12,7 @@ call plug#begin('~/vim/plugged')
     Plug 'Valloric/YouCompleteMe'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'easymotion/vim-easymotion'
     " Vim theme
     Plug 'sjl/badwolf'
 call plug#end()
@@ -66,9 +67,9 @@ set history=100
 
 " Set youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_extra_conf_globlist = ['~/chromium/*']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 nnoremap <leader>d :YcmCompleter GetDoc<CR>
 " make YCM compatible with UltiSnips (using supertab)
@@ -99,6 +100,9 @@ let g:syntastic_mode_map = {
     \ "mode": "passive"}
 nnoremap <leader>s :SyntasticCheck<CR>
 
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-bd-f2)
+
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -109,6 +113,6 @@ command W w
 command Wq wq
 command Tabe tabe
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 call localrc#load()
