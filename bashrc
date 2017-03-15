@@ -134,3 +134,5 @@ fi
 
 # Local settings
 [ -f "$HOME/.local_bashrc" ] && . "$HOME/.local_bashrc"
+
+export COMP_WORDBREAKS="$COMP_WORDBREAKS="

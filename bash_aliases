@@ -5,3 +5,5 @@ alias l='ls'
 
 # SimpleHTTPServer
 alias ss='python -m SimpleHTTPServer'
+
+alias xclip='xclip -selection c'
