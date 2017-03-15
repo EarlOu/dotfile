@@ -1,1 +1,4 @@
 *.sw*
+*.pyc
+.chroot_lock
+.netrwhist
