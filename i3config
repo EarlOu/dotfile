@@ -162,7 +162,7 @@ bar {
 # bindsym Mod1+Mod4+l exec "gnome-screensaver-command --lock"
 bindsym Mod1+Mod4+l exec i3lock -i /usr/share/backgrounds/Foggy_Forest_by_Jake_Stewart.png && xset dpms force off
 
-exec --no-startup-id /usr/bin/xautolock -time 1 -locker "i3lock -i /usr/share/backgrounds/Foggy_Forest_by_Jake_Stewart.png" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING SCREEN IN 30 SECONDS'"&
+exec --no-startup-id /usr/bin/xautolock -time 3 -locker "i3lock -i /usr/share/backgrounds/Foggy_Forest_by_Jake_Stewart.png" -notify 5 -notifier "notify-send -u critical -t 5000 -- 'LOCKING SCREEN IN 5 SECONDS'"&
 
 # Setup Goobuntu Indicator
 exec /usr/share/goobuntu-indicator/goobuntu_indicator.py
