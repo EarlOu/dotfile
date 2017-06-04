@@ -115,7 +115,7 @@ fi
 # repo bash completion
 [ -f "$HOME/etc/repo_bash_completion" ] && . "$HOME/etc/repo_bash_completion"
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/usr/local/android-studio/bin/:$PATH
 
 # setup default editor
 export EDITOR=vim
@@ -136,3 +136,7 @@ fi
 [ -f "$HOME/.local_bashrc" ] && . "$HOME/.local_bashrc"
 
 export COMP_WORDBREAKS="$COMP_WORDBREAKS="
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
