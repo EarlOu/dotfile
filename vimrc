@@ -13,6 +13,8 @@ call plug#begin('~/vim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'easymotion/vim-easymotion'
+    Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+    Plug 'junegunn/fzf.vim'
     " Vim theme
     Plug 'sjl/badwolf'
 call plug#end()
@@ -31,6 +33,14 @@ syntax on
 
 au FileType bash,sh set sw=2 sts=2 ts=2
 au FileType java set sw=4 sts=4 ts=4 colorcolumn=100
+
+au BufRead,BufNewFile *.inc set filetype=cpp
+
+" Spelling check
+set spellfile=~/.vim/spell/en.utf-8.add
+set complete+=kspell
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
 
 " Setup theme
 set background=dark
@@ -107,6 +117,8 @@ nmap s <Plug>(easymotion-bd-f2)
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+vnoremap <buffer> <Leader>zh :call ConvertZHToCN()<CR>"
 
 " Map W
 command W w
