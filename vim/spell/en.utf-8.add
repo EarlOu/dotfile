@@ -12,3 +12,6 @@ env
 overrided
 systrace
 adb
+simpleperf
+pylint
+linter
