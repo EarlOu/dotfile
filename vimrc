@@ -33,6 +33,8 @@ syntax on
 
 au FileType bash,sh set sw=2 sts=2 ts=2
 au FileType java set sw=4 sts=4 ts=4 colorcolumn=100
+au FileType gitcommit set colorcolumn=72
+au FileType python setl nosmartindent
 
 au BufRead,BufNewFile *.inc set filetype=cpp
 
