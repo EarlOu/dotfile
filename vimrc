@@ -41,6 +41,7 @@ au BufRead,BufNewFile *.inc set filetype=cpp
 " Spelling check
 set spellfile=~/.vim/spell/en.utf-8.add
 set complete+=kspell
+autocmd BufRead,BufNewFile *.rst setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 

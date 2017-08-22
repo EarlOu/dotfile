@@ -1,5 +1,5 @@
 [http]
-	cookiefile = ~/.gitcookies
+	cookiefile = /usr/local/google/home/shunhsingou/.gitcookies
 [color]
 	ui = auto
 [alias]
@@ -23,3 +23,23 @@
 	name = Earl Ou
 [branch]
 	autosetuprebase = always
+#[url "persistent-https://android-review.git.corp.google.com"]
+#  insteadof = https://android-review.googlesource.com
+[url "persistent-https://android.git.corp.google.com"]
+          insteadof = https://android.googlesource.com
+[url "persistent-https://android.git.corp.google.com"]
+          insteadof = persistent-https://android.googlesource.com
+[url "persistent-https://android-review.git.corp.google.com"]
+          insteadof = https://android-review.googlesource.com
+[url "persistent-https://googleplex-android.git.corp.google.com"]
+          insteadof = https://googleplex-android.googlesource.com
+[url "persistent-https://googleplex-android.git.corp.google.com"]
+          insteadof = persistent-https://googleplex-android.googlesource.com
+[url "persistent-https://googleplex-android-review.git.corp.google.com"]
+          insteadof = https://googleplex-android-review.googlesource.com
+[url "persistent-https://partner-android.git.corp.google.com"]
+          insteadof = https://partner-android.googlesource.com
+[url "persistent-https://partner-android.git.corp.google.com"]
+          insteadof = persistent-https://partner-android.googlesource.com
+[url "persistent-https://partner-android-review.git.corp.google.com"]
+          insteadof = https://partner-android-review.googlesource.com
