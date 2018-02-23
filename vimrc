@@ -37,6 +37,7 @@ au FileType gitcommit set colorcolumn=72
 au FileType python setl nosmartindent
 
 au BufRead,BufNewFile *.inc set filetype=cpp
+au BufRead,BufNewFile SConstruct set filetype=python
 
 " Spelling check
 set spellfile=~/.vim/spell/en.utf-8.add
@@ -74,6 +75,13 @@ nnoremap <leader>w :set wrap!<CR>
 
 " Set paste
 nnoremap <leader>p :set paste!<CR>
+
+" Remove jj to Esc
+imap jj <Esc>
+
+" Save the exit
+nnoremap <leader>q :wq<CR>
+
 
 " Set history
 set history=100

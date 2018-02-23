@@ -44,22 +44,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-shorten_w() {
-  local p=${1/#${HOME}/\~}
-  if [ "${p}" != "~" ] && [ "${p}" != "/" ]; then
-    local p_dir=$(dirname "${p}")
-    if [ "${p_dir}" != "/" ]; then
-      local short_dir=${p_dir/#${HOME}/\~}
-      p=$(echo "${short_dir}" | sed -e "s;\(/.\)[^/]*;\1;g")/$(basename "${p}")
-    fi
-  fi
-  echo "${p}"
-}
-
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]$(shorten_w \w)\[\033[00m\]\$ '
+  PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-  PS1='\u@\h:$(shorten_w \w)\$ '
+  PS1='@\h:\w\$ '
 fi
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -67,7 +55,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# If this is an xterm set the title to user@host:dir
+# If this is an xterm set the title to host:dir
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e];\u@\h: \w\a\]$PS1"
@@ -112,8 +100,6 @@ fi
 # repo bash completion
 [ -f "$HOME/etc/repo_bash_completion" ] && . "$HOME/etc/repo_bash_completion"
 
-export PATH=$HOME/bin:/usr/local/android-studio/bin/:$PATH
-
 # setup default editor
 export EDITOR=vim
 
@@ -137,4 +123,3 @@ export COMP_WORDBREAKS="$COMP_WORDBREAKS="
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-

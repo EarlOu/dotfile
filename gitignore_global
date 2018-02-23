@@ -1,4 +1,5 @@
 *.sw*
+*.sconsign.dblite
 *.pyc
 .chroot_lock
 .netrwhist
