@@ -6,7 +6,6 @@ set encoding=utf-8
 " vim-plug setup
 call plug#begin('~/vim/plugged')
     Plug 'airblade/vim-gitgutter'
-    Plug 'kien/ctrlp.vim'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/syntastic'
     Plug 'Valloric/YouCompleteMe'
@@ -15,6 +14,10 @@ call plug#begin('~/vim/plugged')
     Plug 'easymotion/vim-easymotion'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
+    Plug 'rhysd/vim-clang-format'
+    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'rix0rrr/vim-gcl'
+
     " Vim theme
     Plug 'sjl/badwolf'
 call plug#end()
@@ -26,6 +29,7 @@ set softtabstop=2
 set expandtab
 set smartindent
 set colorcolumn=80
+set number relativenumber
 
 filetype off
 filetype plugin indent on
@@ -45,6 +49,8 @@ set complete+=kspell
 autocmd BufRead,BufNewFile *.rst setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
+
+autocmd BufNewFile,BufRead *.borg setfiletype gcl
 
 " Setup theme
 set background=dark
@@ -92,6 +98,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>t :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>d :YcmCompleter GetDoc<CR>
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -131,10 +138,30 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 vnoremap <buffer> <Leader>zh :call ConvertZHToCN()<CR>"
 
+" Set FZF
+nnoremap <C-p> :Files<CR>
+nnoremap <C-P> :GFiles<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <leader>f :Ag<CR>
+let g:fzf_buffers_jump = 1
+
+" Set clang-format
+nnoremap <leader>d :ClangFormat<CR>
+vnoremap <leader>d :ClangFormat<CR>
+
 " Map W
 command W w
 command Wq wq
 command Tabe tabe
+
+" Reload vimrc
+nnoremap <leader>r :so $MYVIMRC<CR>
+
+" Command Make will call make and then cwindow which
+" opens a 3 line error window if any errors are found.
+" If no errors, it closes any open cwindow.
+command -nargs=* Make make -j32 | cwindow 3
+nnoremap <leader>m :Make<CR>
 
 set clipboard=unnamedplus
 

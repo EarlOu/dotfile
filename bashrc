@@ -123,3 +123,7 @@ export COMP_WORDBREAKS="$COMP_WORDBREAKS="
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+. /usr/local/bin/virtualenvwrapper.sh
