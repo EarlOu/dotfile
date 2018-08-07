@@ -15,7 +15,9 @@ call plug#begin('~/vim/plugged')
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'rhysd/vim-clang-format'
+    Plug 'tpope/vim-fugitive'
     Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'mbbill/undotree'
     Plug 'rix0rrr/vim-gcl'
 
     " Vim theme
@@ -148,6 +150,9 @@ let g:fzf_buffers_jump = 1
 " Set clang-format
 nnoremap <leader>d :ClangFormat<CR>
 vnoremap <leader>d :ClangFormat<CR>
+
+" Undotree
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " Map W
 command W w
