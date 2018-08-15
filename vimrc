@@ -142,7 +142,7 @@ vnoremap <buffer> <Leader>zh :call ConvertZHToCN()<CR>"
 
 " Set FZF
 nnoremap <C-p> :Files<CR>
-nnoremap <C-P> :GFiles<CR>
+nnoremap <C-o> :GFiles<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <leader>f :Ag<CR>
 let g:fzf_buffers_jump = 1
