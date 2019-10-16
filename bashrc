@@ -126,4 +126,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-. /usr/local/bin/virtualenvwrapper.sh
+
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
